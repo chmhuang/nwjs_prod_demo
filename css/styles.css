@@ -1,0 +1,19 @@
+/* Initial body */
+body {
+  left: 0;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  height: 800;
+  width: 600;
+}
+.rectangle {
+    border-radius: 25px;
+    margin: 2px;
+    border: 3px solid #8AC007;
+    padding: 10px; 
+    overflow-y: scroll;
+}
