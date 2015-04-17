@@ -12,8 +12,7 @@ body {
 }
 .rectangle {
     border-radius: 25px;
-    margin: 2px;
     border: 3px solid #8AC007;
-    padding: 10px; 
+    min-height: 290px;
     overflow-y: scroll;
 }
