@@ -1,25 +1,17 @@
-var gui = require('nw.gui')
+var gui = require('nw.gui');
 var main = function() {  
-  var win = gui.Window.get()
+  var win = gui.Window.get();
   var winWidth = win.width;
   var winHeight = win.height;
   var halfWidth = winWidth / 2;
   var halfHeight = winHeight /2;
-  console.log = function(data) {
-    $("#one").html("<p>" + data +"</p>");
-  };
   $('body').css('height', winHeight);
   $('body').css('width', winWidth);
   $('#one').click(function() {
     console.log("1 got clicked");
     spawn = require('child_process').spawn
-    ls    = spawn('stdbuf -o0', ['python', 'echo.py'], {stdio:'inherit'}); // the second arg is the command
-    ls.stdout.on('data', function (data) {    // register one or more handlers
-      $( "#one" ).html( "<p>"+data+"</p>" );
-    });
-    ls.on('exit', function (code) {
-      console.log('child process exited with code ' + code);
-    });
+    ls    = spawn('python', ['echo.py']); // the second arg is the command
+    ls.stdout.pipe(process.stdout);
   });
 
   $('#two').click(function() {
