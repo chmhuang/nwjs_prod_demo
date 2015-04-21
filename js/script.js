@@ -10,19 +10,14 @@ var main = function() {
   $('#one').click(function() {
     console.log("1 got clicked");
     spawn = require('child_process').spawn
-    ls    = spawn('python', ['echo.py']); // the second arg is the command
-    ls.stdout.pipe(process.stdout);
+    ls    = spawn('python', ['echo.py'], {stdio:'inherit'}); // the second arg is the command
   });
-
   $('#two').click(function() {
     console.log("2 got clicked");
-    exec = require('child_process').exec
-    ls    = exec('python echo.py', function (error, stdout, stderr) {
-      console.log(stdout);
-    });
+    spawn = require('child_process').spawn
+    ls    = spawn('python', ['echo.py'], {stdio:'inherit'}); // the second arg is the command
   });
-
-  $('#three').click(function() {
+  $('#three').click(function() {     
     console.log("3 got clicked");
     spawn = require('child_process').spawn
     ls    = spawn('ls'); // the second arg is the command 
